@@ -2,6 +2,7 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 module.exports = {
   reactStrictMode: true,
+  transpilePackages: ['@company/ui'],
   webpack(config, options) {
     const location = options.isServer ? 'ssr' : 'chunks';
 
@@ -15,7 +16,8 @@ module.exports = {
         },
         shared: {
           react: { singleton: true, requiredVersion: false },
-          'react-dom': { singleton: true, requiredVersion: false }
+          'react-dom': { singleton: true, requiredVersion: false },
+          '@company/ui': { singleton: true, requiredVersion: '^1.0.0' }
         }
       })
     );

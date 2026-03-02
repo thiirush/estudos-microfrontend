@@ -6,6 +6,7 @@ Estrutura:
 - `apps/mf-auth`
 - `apps/mf-dashboard`
 - `apps/mf-products`
+- `packages/ui` (`@company/ui` compartilhado)
 
 ## Requisitos atendidos
 
@@ -16,6 +17,7 @@ Estrutura:
 - Shell consome remotes dinamicamente
 - Setup local pronto
 - TypeScript habilitado
+- Design system compartilhado com versionamento semântico (`@company/ui@^1.0.0`)
 
 ## Como rodar
 
