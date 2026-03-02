@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import type { GetServerSideProps } from 'next';
 import { useState } from 'react';
+import { Card, Layout } from '@company/ui';
 
 type HomeProps = {
   initialAuthenticated: boolean;
@@ -44,15 +45,29 @@ export default function Home({ initialAuthenticated }: HomeProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(initialAuthenticated);
 
   return (
-    <main style={{ fontFamily: 'sans-serif', padding: 24 }}>
-      <h1>Shell App (Host)</h1>
-      <p>Consumo dinâmico e lazy de microfrontends via Module Federation.</p>
-      <p>Status global: {isAuthenticated ? 'Autenticado' : 'Não autenticado'}</p>
-      <div style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-        <AuthApp initialAuthenticated={isAuthenticated} onAuthChange={setIsAuthenticated} />
-        <DashboardApp isAuthenticated={isAuthenticated} />
-        <ProductsApp isAuthenticated={isAuthenticated} />
-      </div>
-    </main>
+    <Layout
+      title="Shell App (Host)"
+      subtitle="Consumo dinâmico e lazy de microfrontends via Module Federation."
+    >
+      <Card
+        title="Microfrontends carregados"
+        description="Todos consomem o pacote compartilhado @company/ui."
+      >
+        <p style={{ marginBottom: 12 }}>
+          Status global: {isAuthenticated ? 'Autenticado' : 'Não autenticado'}
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gap: 12,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
+          }}
+        >
+          <AuthApp initialAuthenticated={isAuthenticated} onAuthChange={setIsAuthenticated} />
+          <DashboardApp isAuthenticated={isAuthenticated} />
+          <ProductsApp isAuthenticated={isAuthenticated} />
+        </div>
+      </Card>
+    </Layout>
   );
 }

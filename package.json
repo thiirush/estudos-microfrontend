@@ -2,7 +2,8 @@
   "name": "estudos-microfrontend",
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "dev:shell": "npm run dev -w shell",

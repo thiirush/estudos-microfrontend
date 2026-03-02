@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { Button, Card, Input } from '@company/ui';
 
 type AuthWidgetProps = {
   initialAuthenticated?: boolean;
@@ -48,37 +49,34 @@ export default function AuthWidget({ initialAuthenticated = false, onAuthChange 
   }
 
   return (
-    <section style={{ border: '1px solid #ddd', borderRadius: 8, padding: 12 }}>
-      <h2>MF Auth</h2>
-      <p>Microfrontend responsável por autenticação global.</p>
-
+    <Card title="MF Auth" description="Microfrontend responsável por autenticação global.">
       {isAuthenticated ? (
-        <div>
+        <div style={{ display: 'grid', gap: 10 }}>
           <p>Você está autenticado.</p>
-          <button onClick={handleLogout} type="button">
+          <Button onClick={handleLogout} type="button">
             Sair
-          </button>
+          </Button>
         </div>
       ) : (
-        <form onSubmit={handleLogin} style={{ display: 'grid', gap: 8, maxWidth: 300 }}>
-          <input
+        <form onSubmit={handleLogin} style={{ display: 'grid', gap: 10, maxWidth: 320 }}>
+          <Input
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Usuário"
             required
             value={username}
           />
-          <input
+          <Input
             onChange={(event) => setPassword(event.target.value)}
             placeholder="Senha"
             required
             type="password"
             value={password}
           />
-          <button type="submit">Entrar</button>
+          <Button type="submit">Entrar</Button>
         </form>
       )}
 
-      {message && <p>{message}</p>}
-    </section>
+      {message && <p style={{ marginTop: 8 }}>{message}</p>}
+    </Card>
   );
 }
