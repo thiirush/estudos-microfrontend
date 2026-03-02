@@ -1,0 +1,36 @@
+services:
+  shell:
+    build:
+      context: .
+      dockerfile: apps/shell/Dockerfile
+    container_name: shell
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mf-auth
+      - mf-dashboard
+      - mf-products
+
+  mf-auth:
+    build:
+      context: .
+      dockerfile: apps/mf-auth/Dockerfile
+    container_name: mf-auth
+    ports:
+      - "3001:3001"
+
+  mf-dashboard:
+    build:
+      context: .
+      dockerfile: apps/mf-dashboard/Dockerfile
+    container_name: mf-dashboard
+    ports:
+      - "3002:3002"
+
+  mf-products:
+    build:
+      context: .
+      dockerfile: apps/mf-products/Dockerfile
+    container_name: mf-products
+    ports:
+      - "3003:3003"
