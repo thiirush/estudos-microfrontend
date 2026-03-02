@@ -10,5 +10,8 @@
     "dev:auth": "npm run dev -w mf-auth",
     "dev:dashboard": "npm run dev -w mf-dashboard",
     "dev:products": "npm run dev -w mf-products"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
