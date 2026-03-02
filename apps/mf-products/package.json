@@ -12,7 +12,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@module-federation/nextjs-mf": "^8.6.10",
-    "@company/ui": "^1.0.0"
+    "@company/ui": "^1.0.0",
+    "zustand": "^0.0.1"
   },
   "devDependencies": {
     "typescript": "^5.5.4",
