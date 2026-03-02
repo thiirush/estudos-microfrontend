@@ -1,0 +1,13 @@
+{
+  "name": "estudos-microfrontend",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:shell": "npm run dev -w shell",
+    "dev:auth": "npm run dev -w mf-auth",
+    "dev:dashboard": "npm run dev -w mf-dashboard",
+    "dev:products": "npm run dev -w mf-products"
+  }
+}
